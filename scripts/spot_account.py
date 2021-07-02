@@ -10,6 +10,7 @@ def cli(ctx, *args, **kwargs):
     ctx.obj = {}
     session = SpotinstSession()
     ctx.obj['client'] = session.client("admin")
+    ctx.obj['client2'] = session.client("setup_aws")
 
 
 @cli.command()
@@ -34,8 +35,8 @@ def delete(ctx, *args, **kwargs):
 @click.pass_context
 def create_external_id(ctx, *args, **kwargs):
     """Generate the Spot External ID for Spot Account connection"""
-    ctx.obj['client'].account_id = kwargs.get('account_id')
-    result = ctx.obj['client'].create_aws_external_id()
+    ctx.obj['client2'].account_id = kwargs.get('account_id')
+    result = ctx.obj['client2'].create_aws_external_id()
     click.echo(json.dumps(result))
 
 
@@ -45,8 +46,8 @@ def create_external_id(ctx, *args, **kwargs):
 @click.pass_context
 def set_cloud_credentials(ctx, *args, **kwargs):
     """Set AWS ROLE ARN to Spot Account"""
-    ctx.obj['client'].account_id = kwargs.get('account_id')
-    result = ctx.obj['client'].set_cloud_credentials(iam_role=kwargs.get('role_arn'))
+    ctx.obj['client2'].account_id = kwargs.get('account_id')
+    result = ctx.obj['client2'].set_cloud_credentials(iam_role=kwargs.get('role_arn'))
     click.echo(json.dumps(result))
 
 
