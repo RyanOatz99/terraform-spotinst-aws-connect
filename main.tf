@@ -71,7 +71,7 @@ resource "aws_iam_role_policy_attachment" "spot" {
 # Call Spot API to create the Spot Account
 resource "null_resource" "account" {
     triggers = {
-        cmd = "${path.module}/scripts/spot-account"
+        cmd = "${path.module}/scripts/spot-account-aws"
         name = local.name
     }
     provisioner "local-exec" {
