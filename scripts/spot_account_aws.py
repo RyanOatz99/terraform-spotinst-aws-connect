@@ -47,7 +47,7 @@ def create_external_id(ctx, *args, **kwargs):
 def set_cloud_credentials(ctx, *args, **kwargs):
     """Set AWS ROLE ARN to Spot Account"""
     ctx.obj['client2'].account_id = kwargs.get('account_id')
-    result = ctx.obj['client2'].set_cloud_credentials(iam_role=kwargs.get('role_arn'))
+    result = ctx.obj['client2'].set_credentials(iam_role=kwargs.get('role_arn'))
     click.echo(json.dumps(result))
 
 
