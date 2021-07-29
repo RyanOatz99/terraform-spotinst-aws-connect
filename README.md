@@ -10,6 +10,22 @@ The module will aid in automatically connecting your AWS Account to Spot via ter
 * Spot Organization Admin API token. This is required to be added as an environment variable stored in ```SPOTINST_TOKEN```.
 * Python 3 installed
 
+###Example
+```hcl
+module "spot_account_aws" {
+    source = "stevenfeltner/aws-connect/spotinst"
+
+    #AWS Profile (Optional)
+    #profile = ""
+
+    #Name of the linked account in Spot (Optional) If none is provided will use AWS account alias as the account name.
+    #name = "test-terraform"
+}
+
+output "spot_account_id" {
+    value = module.spot_account_aws.spot_account_id
+}
+```
 ### Run
 This terraform module will do the following:
 
