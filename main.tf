@@ -59,7 +59,7 @@ resource "aws_iam_policy" "spot" {
     path        = "/"
     description = "Allow Spot.io to manage resources"
 
-    policy = templatefile("${path.module}/spot_policy.json", {})
+    policy = templatefile(var.policy_file == null ? "${path.module}/spot_policy.json" : var.policy_file, {})
 }
 
 # Attach the policy to the role

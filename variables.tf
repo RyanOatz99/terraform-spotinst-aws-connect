@@ -9,3 +9,8 @@ variable "profile" {
     default     = null
     description = "(OPTIONAL) AWS profile name. Ex: default"
 }
+variable "policy_file" {
+    type        = string
+    default     = null
+    description = "(OPTIONAL) Provide Custom IAM Policy File in JSON format"
+}
