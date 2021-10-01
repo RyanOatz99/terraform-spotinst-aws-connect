@@ -5,11 +5,6 @@ terraform {
     }
 }
 
-provider "aws" {
-    region = "us-east-1"
-    profile = var.profile
-}
-
 
 locals {
     cmd = "${path.module}/scripts/spot-account-aws"
