@@ -1,9 +1,6 @@
 module "spot_aws_account" {
     source = "../"
 
-    #AWS Profile (Optional)
-    #profile = ""
-
     #Name of the linked account in Spot (Optional) If none is provided will use account alias as the account name.
     #name = "test-terraform"
 }
