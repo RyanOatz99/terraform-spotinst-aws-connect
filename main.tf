@@ -47,7 +47,7 @@ resource "aws_iam_role" "spot"{
 
     lifecycle {
         ignore_changes = [
-            "assume_role_policy"
+            assume_role_policy
         ]
     }
 }
