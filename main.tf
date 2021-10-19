@@ -44,6 +44,12 @@ resource "aws_iam_role" "spot"{
             ]
         }
     EOT
+
+    lifecycle {
+        ignore_changes = [
+            "assume_role_policy"
+        ]
+    }
 }
 
 # Create the Policy
@@ -110,3 +116,5 @@ resource "null_resource" "account_association" {
         command = "${local.cmd} set-cloud-credentials ${local.account_id} ${aws_iam_role.spot.arn}"
     }
 }
+
+
